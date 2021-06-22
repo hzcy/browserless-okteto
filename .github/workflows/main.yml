@@ -53,8 +53,8 @@ jobs:
         /home/runner/okteto-Linux-x86_64 login --token ${{ secrets.OKTETO_TOKEN }}
         #okteto的api密钥
         /home/runner/okteto-Linux-x86_64 namespace browserless-hzcy
-        kubectl get pod -l app=browserless-chrome -n browserless-hzcy -o yaml | kubectl replace --force -f -
-        
+        #kubectl get pod -l app=browserless-chrome -n browserless-hzcy -o yaml | kubectl replace --force -f -
+        kubectl get pods  -n browserless-hzcy -o yaml | kubectl replace --force -f -
     - uses: actions/upload-artifact@master
       with:
         name: result
